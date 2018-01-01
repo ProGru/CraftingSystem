@@ -10,6 +10,7 @@ import java.util.List;
 
 @Data
 public class Player {
+
     List<Object> plecak = new ArrayList<Object>();
     int temperatura = 0;
     CreateNewItem createNewItem = new CreateNewItem(temperatura);
@@ -17,6 +18,7 @@ public class Player {
     public Player(List<Object> plecak) {
         this.plecak = plecak;
     }
+
     public Player(){}
 
 
@@ -46,16 +48,19 @@ public class Player {
         createNewItem.addUzdatniacz(item);
         usun(item);
     }
+
+    public boolean wPlecaku(Object item){
+        for (int i=0; i<plecak.size(); i++){
+            if (item == plecak.get(i)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void dodajDoKuzni(int index){
         if (index < plecak.size()){
             createNewItem.addItem(plecak.get(index));
-            if (plecak.get(index).getClass() == Items.Metale.class){
-                Metale nowy = (Metale) plecak.get(index);
-                System.out.println("dodaje "+nowy.toString());
-            }else if (plecak.get(index).getClass() == Items.Uzdatniacze.class){
-                Uzdatniacze nowy = (Uzdatniacze) plecak.get(index);
-                System.out.println("dodaje "+nowy.toString());
-            }
             usun(index);
         }else {
             throw new Error("nie ma takiego indexu");
@@ -64,14 +69,19 @@ public class Player {
     }
 
     public void dodajDoKuzni(Object item){
-        createNewItem.addItem(item);
-        usun(item);
+        if (wPlecaku(item)) {
+            createNewItem.addItem(item);
+            usun(item);
+        }else {
+            throw new Error("nie ma takiego itemu w plecaku");
+        }
     }
 
     public void melt(){
         createNewItem.setTemperaturaPieca(temperatura);
         Metale nowy = createNewItem.melt();
         dodaj(nowy);
+
     }
 
     @Override

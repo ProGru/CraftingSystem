@@ -92,18 +92,16 @@ public class CreateNewItem {
         }
 
         int ile = 0;
-        for (int i = 0; i< metaleList.size(); i++){
-            waga += metaleList.get(i).getWaga();
-        }
 
         for (int i = 0; i< metaleList.size(); i++){
             if (metaleList.get(i).getTemperaturaTopnienia()<=temperaturaPieca){
+                waga += metaleList.get(i).getWaga();
                 ile += 1;
-                twardosc += metaleList.get(i).getTwardosc()*( metaleList.get(i).getWaga()*1.0/waga);
-                elastycznosc += metaleList.get(i).getElastycznosc()*( metaleList.get(i).getWaga()*1.0/waga);
-                podatnosc += metaleList.get(i).getPodatnosc()*( metaleList.get(i).getWaga()*1.0/waga);
-                kruchosc += metaleList.get(i).getKruchosc()*( metaleList.get(i).getWaga()*1.0/waga);
-                przewodnictwoCieplne += metaleList.get(i).getPrzewodnictwoCieplne()*( metaleList.get(i).getWaga()*1.0/waga);
+                twardosc += metaleList.get(i).getTwardosc()*( metaleList.get(i).getWaga()*1.0/waga)*1-temperaturaPieca*0.001;
+                elastycznosc += metaleList.get(i).getElastycznosc()*( metaleList.get(i).getWaga()*1.0/waga)*1-temperaturaPieca*0.001;
+                podatnosc += metaleList.get(i).getPodatnosc()*( metaleList.get(i).getWaga()*1.0/waga)*1-temperaturaPieca*0.001;
+                kruchosc += metaleList.get(i).getKruchosc()*( metaleList.get(i).getWaga()*1.0/waga)*1-temperaturaPieca*0.001;
+                przewodnictwoCieplne += metaleList.get(i).getPrzewodnictwoCieplne()*( metaleList.get(i).getWaga()*1.0/waga)*1-temperaturaPieca*0.001;
                 if (metaleList.get(i).getTemperaturaTopnienia()>temperaturaTopnienia){
                     temperaturaTopnienia = metaleList.get(i).getTemperaturaTopnienia();
                 }
@@ -112,6 +110,10 @@ public class CreateNewItem {
             }
         }
         metaleList = new ArrayList<Metale>();
+
+        if (ile==0){
+            return new Metale("syf",0,0,0,0,0,0,0);
+        }
 
         for (int i =0; i<uzdatniaczeList.size();i++){
             double twardosc1 = twardosc * uzdatniaczeList.get(i).getTwardosc();
@@ -131,11 +133,14 @@ public class CreateNewItem {
             waga = (int) waga1;
         }
         uzdatniaczeList = new ArrayList<Uzdatniacze>();
-
-        double nowa_waga = waga *0.9;
+        double nowa_waga = waga * 1-(temperaturaPieca*0.009);
+        if (nowa_waga<0){
+            return new Metale("spalony syf", 0, 0, 0, 0, 0, 0, 0);
+        }
         waga = (int) nowa_waga;
-        return new Metale("NowyMetal",temperaturaTopnienia,twardosc,
-                elastycznosc,podatnosc,kruchosc,waga,przewodnictwoCieplne);
+
+        return new Metale("NowyMetal", temperaturaTopnienia, twardosc,
+                elastycznosc, podatnosc, kruchosc, waga, przewodnictwoCieplne);
     }
 
     public List<Metale> getNieStopoione() {

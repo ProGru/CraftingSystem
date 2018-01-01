@@ -25,7 +25,7 @@ public class CraftingGames {
 		Uzdatniacze uzdatniacz2 = new Uzdatniacze("Wegiel",1.1,1,0.5,
 				1.01,1.05,1,1.0);
 
-		CreateNewItem createNewItem = new CreateNewItem(500);
+		CreateNewItem createNewItem = new CreateNewItem(550);
 
 		createNewItem.addUzdatniacz(uzdatniacz2);
 		createNewItem.addMetal(item1);
@@ -36,9 +36,10 @@ public class CraftingGames {
 		player.dodaj(item1);
 		player.dodaj(item0);
 		player.dodaj(item2);
-		player.usun(uzdatniacz2);
+		player.dodaj(uzdatniacz2);
 		System.out.println(player.toString());
-		player.setTemperatura(500);
+		player.setTemperatura(1100);
+		player.dodajDoKuzni(0);
 		player.dodajDoKuzni(0);
 		player.dodajDoKuzni(0);
 		player.dodajDoKuzni(0);
