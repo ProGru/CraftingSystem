@@ -2,6 +2,7 @@ package com.example.demo;
 
 import Items.Metale;
 import Items.Uzdatniacze;
+import User.Player;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -30,6 +31,20 @@ public class CraftingGames {
 		createNewItem.addMetal(item1);
 		createNewItem.addMetal(item0);
 		createNewItem.addMetal(item2);
+
+		Player player = new Player();
+		player.dodaj(item1);
+		player.dodaj(item0);
+		player.dodaj(item2);
+		player.usun(uzdatniacz2);
+		System.out.println(player.toString());
+		player.setTemperatura(500);
+		player.dodajDoKuzni(0);
+		player.dodajDoKuzni(0);
+		player.dodajDoKuzni(0);
+		player.melt();
+		System.out.println(player.toString());
+
 
 		Metale metale2 = createNewItem.melt();
 

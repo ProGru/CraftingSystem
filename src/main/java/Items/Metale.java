@@ -63,7 +63,7 @@ public class Metale {
                 ", przewodnictwoCieplne=" + przewodnictwoCieplne +
                 '}';
     }
-
+/*
     public String getNazwa() {
         return nazwa;
     }
@@ -127,6 +127,6 @@ public class Metale {
     public void setPrzewodnictwoCieplne(int przewodnictwoCieplne) {
         this.przewodnictwoCieplne = przewodnictwoCieplne;
     }
-
+*/
 }
 

@@ -57,6 +57,14 @@ public class CreateNewItem {
      * Dodaje uzdatniacz do listy (kotła)
      * @param item
      */
+    public  void addItem(Object item){
+        if (item.getClass() == Items.Metale.class){
+            addMetal((Metale) item);
+        }else if (item.getClass() == Items.Uzdatniacze.class){
+            addUzdatniacz((Uzdatniacze) item);
+        }
+    }
+
     public void addUzdatniacz(Uzdatniacze item){
         uzdatniaczeList.add(item);
     }
