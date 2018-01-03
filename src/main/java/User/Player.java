@@ -21,11 +21,18 @@ public class Player {
 
     public Player(){}
 
-
+    /**
+     * Dodaje item do plecaka
+     * @param item - do dodania
+     */
     public void dodaj(Object item) {
         plecak.add(item);
     }
 
+    /**
+     * usuwa item z pod wspakaznego indexu
+     * @param index - wkazany index
+     */
     public void usun(int index){
         if (index < plecak.size()){
             plecak.remove(index);
@@ -35,20 +42,37 @@ public class Player {
 
     }
 
+    /**
+     * usuwa item z plecaka
+     * @param item
+     */
     public void usun(Object item){
         plecak.remove(item);
     }
 
+    /**
+     * dodaje nowy item (metal) do CreateNewItem
+     * @param item z plecaka
+     */
     public void dodajDoKuzni(Metale item){
         createNewItem.addMetal(item);
         usun(item);
     }
 
+    /**
+     * dodaje nowy item (uzdatniacz) do CreateNewItem
+     * @param item z plecaka
+     */
     public void dodajDoKuzni(Uzdatniacze item){
         createNewItem.addUzdatniacz(item);
         usun(item);
     }
 
+    /**
+     * Sprawdza czy item jest w plecaku
+     * @param item item o który chodzi
+     * @return true - jesli jest false - jesli nie
+     */
     public boolean wPlecaku(Object item){
         for (int i=0; i<plecak.size(); i++){
             if (item == plecak.get(i)){
@@ -58,6 +82,10 @@ public class Player {
         return false;
     }
 
+    /**
+     * dodaje item do CreateNewItem
+     * @param index index itemu z plecaka
+     */
     public void dodajDoKuzni(int index){
         if (index < plecak.size()){
             createNewItem.addItem(plecak.get(index));
@@ -68,6 +96,10 @@ public class Player {
 
     }
 
+    /**
+     * dodaje item jesli jest wplecaku
+     * @param item item z plecaka
+     */
     public void dodajDoKuzni(Object item){
         if (wPlecaku(item)) {
             createNewItem.addItem(item);
@@ -77,6 +109,10 @@ public class Player {
         }
     }
 
+    /**
+     * wywołuje funkcje melt z CrateNewItem i dodaje
+     * nowo utworzony item do plecaka
+     */
     public void melt(){
         createNewItem.setTemperaturaPieca(temperatura);
         Metale nowy = createNewItem.melt();
@@ -91,3 +127,5 @@ public class Player {
                 '}';
     }
 }
+
+
