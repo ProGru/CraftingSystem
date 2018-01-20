@@ -3,7 +3,7 @@ package com.example.demo;
 
 import Items.Metale;
 import Items.Uzdatniacze;
-import lombok.Data;
+//import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
  * -melt
  *
  */
-@Data
+//@Data
 public class CreateNewItem {
 
     List<Metale> metaleList = new ArrayList<Metale>();
@@ -145,5 +145,9 @@ public class CreateNewItem {
 
     public List<Metale> getNieStopoione() {
         return nieStopoione;
+    }
+
+    public void setTemperaturaPieca(int temperaturaPieca) {
+        this.temperaturaPieca = temperaturaPieca;
     }
 }

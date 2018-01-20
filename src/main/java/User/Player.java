@@ -2,24 +2,26 @@ package User;
 
 import Items.Metale;
 import Items.Uzdatniacze;
-import com.example.demo.CreateNewItem;
-import lombok.Data;
 
+import com.example.demo.CreateNewItem;
+import com.company.klientTrade.KlientTrade;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+//@Data
 public class Player {
 
     List<Object> plecak = new ArrayList<Object>();
     int temperatura = 0;
     CreateNewItem createNewItem = new CreateNewItem(temperatura);
+    KlientTrade klientTrade = new KlientTrade(this);
 
-    public Player(List<Object> plecak) {
+    public Player(List<Object> plecak) throws IOException {
         this.plecak = plecak;
     }
 
-    public Player(){}
+    public Player() throws IOException {}
 
     /**
      * Dodaje item do plecaka
@@ -117,8 +119,21 @@ public class Player {
         createNewItem.setTemperaturaPieca(temperatura);
         Metale nowy = createNewItem.melt();
         dodaj(nowy);
-
     }
+
+    public void trade(Metale metale,String userName) throws IOException {
+        klientTrade.tradeWysylamy(metale,userName);
+    }
+
+    public void wyslij(String msg){
+        klientTrade.wyslijTrade.wyslij(msg);
+    }
+
+    public void accept(String usrName){
+        klientTrade.akcept(usrName);
+    }
+
+
 
     @Override
     public String toString() {
@@ -126,6 +141,8 @@ public class Player {
                 "plecak=" + plecak.toString() +
                 '}';
     }
+
+    public void setTemperatura(int temperatura) {
+        this.temperatura = temperatura;
+    }
 }
-
-

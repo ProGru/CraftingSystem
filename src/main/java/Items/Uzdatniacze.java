@@ -1,12 +1,12 @@
 package Items;
 
-import lombok.Data;
+//import lombok.Data;
 
 /**
  * Klasa Uzdatniacze - pojemnik na itemy typu uzdatniajacego
  */
 
-@Data
+//@Data
 public class Uzdatniacze {
 
     private String nazwa;
@@ -65,7 +65,7 @@ public class Uzdatniacze {
                 ", przewodnictwoCieplne=" + przewodnictwoCieplne +
                 '}';
     }
-/*
+
     public String getNazwa() {
         return nazwa;
     }
@@ -129,5 +129,4 @@ public class Uzdatniacze {
     public void setPrzewodnictwoCieplne(double przewodnictwoCieplne) {
         this.przewodnictwoCieplne = przewodnictwoCieplne;
     }
-    */
 }

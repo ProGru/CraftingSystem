@@ -1,13 +1,13 @@
 package Items;
 
 
-import lombok.Data;
+//import lombok.Data;
 
 /**
  * Klasa Metal - pojemnik na itemy typu metalowego
  */
 
-@Data
+//@Data
 public class Metale {
 
     private String nazwa;
@@ -54,16 +54,16 @@ public class Metale {
     public String toString() {
         return "Metale{" +
                 "nazwa='" + nazwa + '\'' +
-                ", temperaturaTopnienia=" + temperaturaTopnienia +
-                ", twardosc=" + twardosc +
-                ", elastycznosc=" + elastycznosc +
-                ", podatnosc=" + podatnosc +
-                ", kruchosc=" + kruchosc +
-                ", waga=" + waga +
-                ", przewodnictwoCieplne=" + przewodnictwoCieplne +
+                ",temperaturaTopnienia=" + temperaturaTopnienia +
+                ",twardosc=" + twardosc +
+                ",elastycznosc=" + elastycznosc +
+                ",podatnosc=" + podatnosc +
+                ",kruchosc=" + kruchosc +
+                ",waga=" + waga +
+                ",przewodnictwoCieplne=" + przewodnictwoCieplne +
                 '}';
     }
-/*
+
     public String getNazwa() {
         return nazwa;
     }
@@ -127,6 +127,6 @@ public class Metale {
     public void setPrzewodnictwoCieplne(int przewodnictwoCieplne) {
         this.przewodnictwoCieplne = przewodnictwoCieplne;
     }
-*/
+
 }
 

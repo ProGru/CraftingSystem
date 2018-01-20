@@ -3,14 +3,16 @@ package com.example.demo;
 import Items.Metale;
 import Items.Uzdatniacze;
 import User.Player;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+import java.io.IOException;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+//@SpringBootApplication
 public class CraftingGames {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CraftingGames.class, args);
+	public static void main(String[] args) throws IOException {
+		//SpringApplication.run(CraftingGames.class, args);
 
 		Metale item0 = new Metale("Adamit",100,100,
 				100,100,100,10,100);
