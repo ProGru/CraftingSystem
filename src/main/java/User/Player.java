@@ -133,6 +133,9 @@ public class Player {
         klientTrade.akcept(usrName);
     }
 
+    public void cancel(String usName){
+        klientTrade.cancel(usName);
+    }
 
 
     @Override
