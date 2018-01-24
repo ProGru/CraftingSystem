@@ -2,6 +2,8 @@ package Items;
 
 //import lombok.Data;
 
+import java.util.ArrayList;
+
 /**
  * Klasa Uzdatniacze - pojemnik na itemy typu uzdatniajacego
  */
@@ -56,13 +58,13 @@ public class Uzdatniacze {
     public String toString() {
         return "Uzdatniacze{" +
                 "nazwa='" + nazwa + '\'' +
-                ", temperaturaTopnienia=" + temperaturaTopnienia +
-                ", twardosc=" + twardosc +
-                ", elastycznosc=" + elastycznosc +
-                ", podatnosc=" + podatnosc +
-                ", kruchosc=" + kruchosc +
-                ", waga=" + waga +
-                ", przewodnictwoCieplne=" + przewodnictwoCieplne +
+                ",temperaturaTopnienia=" + temperaturaTopnienia +
+                ",twardosc=" + twardosc +
+                ",elastycznosc=" + elastycznosc +
+                ",podatnosc=" + podatnosc +
+                ",kruchosc=" + kruchosc +
+                ",waga=" + waga +
+                ",przewodnictwoCieplne=" + przewodnictwoCieplne +
                 '}';
     }
 
@@ -129,4 +131,5 @@ public class Uzdatniacze {
     public void setPrzewodnictwoCieplne(double przewodnictwoCieplne) {
         this.przewodnictwoCieplne = przewodnictwoCieplne;
     }
+
 }

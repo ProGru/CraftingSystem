@@ -121,8 +121,12 @@ public class Player {
         dodaj(nowy);
     }
 
-    public void trade(Metale metale,String userName) throws IOException {
+    public void trade(Object metale,String userName) throws IOException {
         klientTrade.tradeWysylamy(metale,userName);
+    }
+
+    public void tradeOdbieramy(Object metale,String userName) throws IOException {
+        klientTrade.tradeOdbieramy(metale,userName);
     }
 
     public void wyslij(String msg){
@@ -135,6 +139,14 @@ public class Player {
 
     public void cancel(String usName){
         klientTrade.cancel(usName);
+    }
+
+    public void ustawNick(String nick){
+        klientTrade.ustawNick(nick);
+    }
+
+    public void sprawdzNicki(){
+        klientTrade.sprawdzNicki();
     }
 
 
